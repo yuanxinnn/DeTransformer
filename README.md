@@ -14,7 +14,7 @@ For the system-side optimization, DeTransformer employs the adaptive execution a
 By adopting the idea of "co-design", DeTransformer can significantly reduce the communication demands and maximize the performance benefits during distributed inference.
 
 <br><div id="top" align="center">
-<img src="images/model.png" width="900">
+<img src="images/model.png" width="600">
 </div><br>
 
 
@@ -27,7 +27,7 @@ The codes of the accuracy experiment are modified on top of [NVIDIA/DeepLearning
 The code in `accuracy_experiment/modeling_split.py` showns the process of decoupling.
 
 ## Performance Experiment
-we perform the performance experiment to study the distributed inference performance of DeTransformer under a variety of network bandwidth.
+We perform the performance experiment to study the distributed inference performance of DeTransformer under a variety of network bandwidth.
 
 
 ### Hardware
