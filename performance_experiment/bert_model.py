@@ -41,8 +41,7 @@ class BERT(nn.Module):
     def forward(self, x, segment_info):
 
         # embedding the indexed sequence to sequence of vectors   [bz,seq,hidden]
-        
-        hidden_states = x
+        hidden_states = self.embedding(x, segment_info)
         
         global total_time, count
         total_time = 0
@@ -96,9 +95,7 @@ class MegatronBERT(nn.Module):
     def forward(self, x, segment_info):
 
         # embedding the indexed sequence to sequence of vectors   [bz,seq,hidden]
-        # hidden_states = self.embedding(x, segment_info)
-        
-        hidden_states = x
+        hidden_states = self.embedding(x, segment_info)
         
         global total_comm_time, total_comp_time, count
         total_comm_time = 0
@@ -166,9 +163,8 @@ class DeBERT(nn.Module):
     def forward(self, x, segment_info):
         rank, world_size = dist.get_rank(), dist.get_world_size()
 
-
         # embedding the indexed sequence to sequence of vectors   [bz,seq,hidden]
-        hidden_states = x
+        hidden_states = self.embedding(x, segment_info)
 
         # split the embedding output
         embedding_output_split = torch.chunk(hidden_states, self.debert_division, dim = -1)

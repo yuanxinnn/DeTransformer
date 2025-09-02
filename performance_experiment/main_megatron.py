@@ -17,7 +17,7 @@ args = parser.parse_args()
 rank = int(os.environ['RANK'])
 world = int(os.environ['WORLD_SIZE'])
 bs = args.bs
-dist.init_process_group(backend="nccl", rank=rank, world_size=world)
+dist.init_process_group(backend="gloo", rank=rank, world_size=world)
 
 
 print("Start Running")
