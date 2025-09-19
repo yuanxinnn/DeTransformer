@@ -26,6 +26,8 @@ Firstly, we pre-train both the original Bert and the decoupled Bert models using
 The codes of the accuracy experiment are modified on top of [NVIDIA/DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/README.md), and we keep the same parameters in the example code. 
 The code in `accuracy_experiment/modeling_split.py` showns the process of decoupling.
 
+The checkpoints and log files with respect to the pre-training process and the fine-tuning and evaluating process of all downstream tasks are uploaded in [HuggingFace](https://huggingface.co/Yuanxin1128/DeTransformer). The configuration is `Decoupled Bert-Base` with $N_b=4$ and $N_d=4$.
+
 ## Performance Experiment
 We perform the performance experiment to study the distributed inference performance of DeTransformer under a variety of network bandwidth.
 
